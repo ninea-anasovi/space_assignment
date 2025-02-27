@@ -5,6 +5,10 @@ def tot_claim_cnt_l180d(contracts):
     try:
         if isinstance(contracts, str):
             contracts = json.loads(contracts)
+        elif isinstance(contracts, float):
+            return -3
+        if isinstance(contracts, dict):
+            contracts = [contracts]
         l180d_date = datetime.now() - timedelta(days=180)
         result = 0
         for contract in contracts:
@@ -16,5 +20,5 @@ def tot_claim_cnt_l180d(contracts):
             except ValueError:
                 continue
         return result
-    except Exception:
-        return -3
+    except Exception as e:
+        print('Error: ', e)
