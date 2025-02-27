@@ -1,15 +1,12 @@
 import pandas as pd
-import json
-from datetime import datetime, timedelta
-from features import tot_claim_cnt_l180d
+from features import tot_claim_cnt_l180d, disb_bank_loan_wo_tbc
 
 # load the data in the dataset
 df = pd.read_csv("data/data.csv")
 contracts = df['contracts']
 
 df['tot_claim_cnt_l180d'] = df['contracts'].apply(tot_claim_cnt_l180d)
+df['disb_bank_loan_wo_tbc'] = df['contracts'].apply(disb_bank_loan_wo_tbc)
 
-# contracts = json.loads(contracts)
-#
-# datetime.strptime(contracts[0].get("claim_date", "1900-01-01"), "%Y-%m-%d")
 print(df['tot_claim_cnt_l180d'])
+# print(df['disb_bank_loan_wo_tbc'])
