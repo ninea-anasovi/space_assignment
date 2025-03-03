@@ -2,7 +2,7 @@ import pandas as pd
 from features import tot_claim_cnt_l180d, disb_bank_loan_wo_tbc, day_sinlastloan
 
 def process_data(input_file, output_file):
-    """Load CSV, apply feature engineering, and save results."""
+    # open csv, apply features, save and return results.
     df = pd.read_csv(input_file)
 
     # Apply feature functions

@@ -9,7 +9,6 @@ def day_sinlastloan(contracts):
             return -1
         if isinstance(contracts, dict):
             contracts = [contracts]
-        contracts_dates = []
         valid_loans = [
             contract for contract in contracts
             if not contract.get("summa") in [None, ""]
